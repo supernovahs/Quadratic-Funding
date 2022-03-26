@@ -258,13 +258,13 @@ function App(props) {
       />
       <Menu style={{ textAlign: "center", marginTop: 40 }} selectedKeys={[location.pathname]} mode="horizontal">
         <Menu.Item key="/">
-          <Link to="/">App Home</Link>
+          <Link to="/">Matching Fund </Link>
         </Menu.Item>
         <Menu.Item key="/debug">
           <Link to="/debug">Debug Contracts</Link>
         </Menu.Item>
         <Menu.Item key="/hints">
-          <Link to="/hints">Hints</Link>
+          <Link to="/hints">Calculate Allocation</Link>
         </Menu.Item>
         <Menu.Item key="/exampleui">
           <Link to="/exampleui">ExampleUI</Link>
@@ -280,7 +280,12 @@ function App(props) {
       <Switch>
         <Route exact path="/">
           {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}
-          <Home yourLocalBalance={yourLocalBalance} readContracts={readContracts} />
+          <Home
+            yourLocalBalance={yourLocalBalance}
+            readContracts={readContracts}
+            writeContracts={writeContracts}
+            price={price}
+          />
         </Route>
         <Route exact path="/debug">
           {/*
@@ -305,6 +310,8 @@ function App(props) {
             yourLocalBalance={yourLocalBalance}
             mainnetProvider={mainnetProvider}
             price={price}
+            readContracts={readContracts}
+            writeContracts={writeContracts}
           />
         </Route>
         <Route path="/exampleui">
