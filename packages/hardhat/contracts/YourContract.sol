@@ -47,6 +47,9 @@ contract YourContract {
         }
     }
 
+    uint256 public a;
+    uint256 public b;
+
     // *********** Add projects *********//
 
     // function AddProject(address _ProjectAddress) public {
@@ -88,8 +91,9 @@ contract YourContract {
         TotalMatchingFund += msg.value;
     }
 
-    function FundAllocation() public {
-        P1Allocation = (squareP1 / (squareP1 + squareP2)) * TotalMatchingFund;
-        P2Allocation = (squareP2 / (squareP1 + squareP2)) * TotalMatchingFund;
+    function CalculateAllocation() public returns (uint256, uint256) {
+        P1Allocation = (squareP1 * TotalMatchingFund) / (squareP1 + squareP2);
+        P2Allocation = (squareP2 * TotalMatchingFund) / (squareP1 + squareP2);
+        return (P1Allocation, P2Allocation);
     }
 }

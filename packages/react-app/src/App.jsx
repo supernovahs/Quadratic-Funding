@@ -267,7 +267,7 @@ function App(props) {
           <Link to="/hints">Calculate Allocation</Link>
         </Menu.Item>
         <Menu.Item key="/exampleui">
-          <Link to="/exampleui">ExampleUI</Link>
+          <Link to="/exampleui">Results</Link>
         </Menu.Item>
         <Menu.Item key="/mainnetdai">
           <Link to="/mainnetdai">Mainnet DAI</Link>

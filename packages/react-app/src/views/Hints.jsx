@@ -52,7 +52,7 @@ export default function Hints({ yourLocalBalance, mainnetProvider, price, addres
             await writeContracts["YourContract"].calculatorP1(Bigintarr);
           }}
         >
-          Lcik
+          Click
         </Button>
       </div>
       <div style={{ border: "1px solid #bbbbbb", width: 400, margin: "auto", padding: 10, position: "right" }}>
@@ -83,7 +83,7 @@ export default function Hints({ yourLocalBalance, mainnetProvider, price, addres
             await writeContracts["YourContract"].calculatorP2(arrint);
           }}
         >
-          Lcik
+          Click
         </Button>
       </div>
     </div>
