@@ -1,109 +1,62 @@
-# 🏗 Scaffold-ETH
+# Quadratic Funding 
 
-> everything you need to build on Ethereum! 🚀
+ ## @Author : Supernovahs
+ Feel free to PR or Fork this . Waiting for your Suggestions . Thanks 
 
-🧪 Quickly experiment with Solidity using a frontend that adapts to your smart contract:
+This project is inspired by [vitalik's article](https://vitalik.ca/general/2019/12/07/quadratic.html) on Quadratic Funding and how it is better than other forms of funding which involves better chances of good selection. 
 
-![image](https://user-images.githubusercontent.com/2653167/124158108-c14ca380-da56-11eb-967e-69cde37ca8eb.png)
+## Front end link : [Here](https://quadraticfunding.surge.sh/)
+
+## How does Quadratic funding work ?
+
+Let's Assume there are 2 Projects looking for Funding from a specific sponsor. The sponsor funds 1000 $ and now anyone can vote for any project by simply voting in some way.
+I am pasting Vitalik's words from his article as I can't explain it better. 
+
+_The goal is that option A gets chosen if in total people like A more, and option B gets chosen if in total people like B more. With simple voting ("one person one vote"), the distinction between stronger vs weaker preferences gets ignored, so on issues where one side is of very high value to a few people and the other side is of low value to more people, simple voting is likely to give wrong answers.___
+
+ _With a private-goods market mechanism where people can buy as many votes as they want at the same price per vote, the individual with the strongest preference (or the wealthiest) carries everything. Quadratic voting, where you can make n votes in either direction at a cost of n2, is right in the middle between these two extremes, and creates the perfect balance.__________
+
+![Screenshot from 2022-03-28 00-38-38](https://user-images.githubusercontent.com/91280922/160297036-2527bfde-60e0-4225-b048-10d7aba610d7.png)
+
+### How to calculate funding ?
+In the Home  Menu, Send some Test Eth to the contract as a Matching Fund. 
+
+#### Tip: To get the best Accurate Result, in the Calculate Allocation Tab, Enter values as uint because Solidity does not have decimals and inserting big values will result a more accurate square root of the contributions . Thus making the allocation result more Accurate . 
+
+In the calculate Allocation Tab, Enter the assumed contribution values that you want to test . 
+Example : 
+Project 1 : 100000, 300000 , 500000 , 50000, 100000, 190000 , 210000
+Project 2 : 1000000,1000000
 
 
-# 🏄‍♂️ Quick Start
+Now lastly, In the results tab , click on get results and Boom , You get the Matching fund allocation to each project. 
 
-Prerequisites: [Node (v16 LTS)](https://nodejs.org/en/download/) plus [Yarn](https://classic.yarnpkg.com/en/docs/install/) and [Git](https://git-scm.com/downloads)
+## Instructions : 
 
-> clone/fork 🏗 scaffold-eth:
+```
+git clone https://github.com/supernovahs/Quadratic-Funding.git
+```
+### To reproduce the code in your Local Environment
 
-```bash
-git clone https://github.com/scaffold-eth/scaffold-eth.git
+```
+cd Quadratic-Funding
 ```
 
-> install and start your 👷‍ Hardhat chain:
-
-```bash
-cd scaffold-eth
+```
 yarn install
+```
+```
 yarn chain
 ```
-
-> in a second terminal window, start your 📱 frontend:
-
-```bash
-cd scaffold-eth
-yarn start
 ```
-
-> in a third terminal window, 🛰 deploy your contract:
-
-```bash
-cd scaffold-eth
 yarn deploy
 ```
 
-🔏 Edit your smart contract `YourContract.sol` in `packages/hardhat/contracts`
-
-📝 Edit your frontend `App.jsx` in `packages/react-app/src`
-
-💼 Edit your deployment scripts in `packages/hardhat/deploy`
-
-📱 Open http://localhost:3000 to see the app
-
-# 📚 Documentation
-
-Documentation, tutorials, challenges, and many more resources, visit: [docs.scaffoldeth.io](https://docs.scaffoldeth.io)
-
-# 🔭 Learning Solidity
-
-📕 Read the docs: https://docs.soliditylang.org
-
-📚 Go through each topic from [solidity by example](https://solidity-by-example.org) editing `YourContract.sol` in **🏗 scaffold-eth**
-
-- [Primitive Data Types](https://solidity-by-example.org/primitives/)
-- [Mappings](https://solidity-by-example.org/mapping/)
-- [Structs](https://solidity-by-example.org/structs/)
-- [Modifiers](https://solidity-by-example.org/function-modifier/)
-- [Events](https://solidity-by-example.org/events/)
-- [Inheritance](https://solidity-by-example.org/inheritance/)
-- [Payable](https://solidity-by-example.org/payable/)
-- [Fallback](https://solidity-by-example.org/fallback/)
-
-📧 Learn the [Solidity globals and units](https://solidity.readthedocs.io/en/v0.6.6/units-and-global-variables.html)
-
-# 🛠 Buidl
-
-Check out all the [active branches](https://github.com/scaffold-eth/scaffold-eth/branches/active), [open issues](https://github.com/scaffold-eth/scaffold-eth/issues), and join/fund the 🏰 [BuidlGuidl](https://BuidlGuidl.com)!
-
-  
- - 🚤  [Follow the full Ethereum Speed Run](https://medium.com/@austin_48503/%EF%B8%8Fethereum-dev-speed-run-bd72bcba6a4c)
+```
+yarn start
+```
 
 
- - 🎟  [Create your first NFT](https://github.com/scaffold-eth/scaffold-eth/tree/simple-nft-example)
- - 🥩  [Build a staking smart contract](https://github.com/scaffold-eth/scaffold-eth/tree/challenge-1-decentralized-staking)
- - 🏵  [Deploy a token and vendor](https://github.com/scaffold-eth/scaffold-eth/tree/challenge-2-token-vendor)
- - 🎫  [Extend the NFT example to make a "buyer mints" marketplace](https://github.com/scaffold-eth/scaffold-eth/tree/buyer-mints-nft)
- - 🎲  [Learn about commit/reveal](https://github.com/scaffold-eth/scaffold-eth/tree/commit-reveal-with-frontend)
- - ✍️  [Learn how ecrecover works](https://github.com/scaffold-eth/scaffold-eth/tree/signature-recover)
- - 👩‍👩‍👧‍👧  [Build a multi-sig that uses off-chain signatures](https://github.com/scaffold-eth/scaffold-eth/tree/meta-multi-sig)
- - ⏳  [Extend the multi-sig to stream ETH](https://github.com/scaffold-eth/scaffold-eth/tree/streaming-meta-multi-sig)
- - ⚖️  [Learn how a simple DEX works](https://medium.com/@austin_48503/%EF%B8%8F-minimum-viable-exchange-d84f30bd0c90)
- - 🦍  [Ape into learning!](https://github.com/scaffold-eth/scaffold-eth/tree/aave-ape)
 
-# 💌 P.S.
 
-🌍 You need an RPC key for testnets and production deployments, create an [Alchemy](https://www.alchemy.com/) account and replace the value of `ALCHEMY_KEY = xxx` in `packages/react-app/src/constants.js` with your new key.
 
-📣 Make sure you update the `InfuraID` before you go to production. Huge thanks to [Infura](https://infura.io/) for our special account that fields 7m req/day!
-
-# 🏃💨 Speedrun Ethereum
-Register as a builder [here](https://speedrunethereum.com) and start on some of the challenges and build a portfolio.
-
-# 💬 Support Chat
-
-Join the telegram [support chat 💬](https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA) to ask questions and find others building with 🏗 scaffold-eth!
-
----
-
-🙏 Please check out our [Gitcoin grant](https://gitcoin.co/grants/2851/scaffold-eth) too!
-
-### Automated with Gitpod
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#github.com/scaffold-eth/scaffold-eth)
