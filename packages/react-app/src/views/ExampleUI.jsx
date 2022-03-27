@@ -46,6 +46,7 @@ export default function ExampleUI({
     <div>
       <div style={{ border: "1px solid #cccccc", padding: 16, width: 400, margin: "auto", marginTop: 64 }}>
         <h2>Guidl Funding Result !</h2>
+        <p>You will get the results of allocation of matching fund here.</p>
 
         <Button
           onClick={async () => {

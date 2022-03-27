@@ -19,6 +19,7 @@ function Home({ yourLocalBalance, readContracts, writeContracts, price }) {
   return (
     <div>
       <h1 style={{ color: "yellowgreen" }}>Matching Fund Contribution</h1>
+      <p>Send some kovan Eth for the Matching fund . </p>
       <div style={{ border: "1px solid #ccccc", margin: "auto", padding: 10, width: 400 }}>
         <EtherInput
           price={price}

@@ -25,8 +25,10 @@ export default function Hints({ yourLocalBalance, mainnetProvider, price, addres
     <div>
       <h1>Input Individual Contributions </h1>
       <div style={{ border: "1px solid #bbbbbb", width: 400, margin: "auto", padding: 10, position: "left" }}>
+        <p>Now insert the contributions in the 2 projects .</p>
         <h2>Project 1 </h2>
         <Input
+          placeholder="10,100,500"
           value={contrifirst}
           onChange={e => {
             setcontrifirst(e.target.value);
@@ -57,7 +59,9 @@ export default function Hints({ yourLocalBalance, mainnetProvider, price, addres
       </div>
       <div style={{ border: "1px solid #bbbbbb", width: 400, margin: "auto", padding: 10, position: "right" }}>
         <h2>Project 2 </h2>
+
         <Input
+          placeholder="10,5,500,2,15"
           value={contrisecond}
           onChange={e => {
             setcontrisecond(e.target.value);
