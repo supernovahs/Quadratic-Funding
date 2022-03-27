@@ -1,5 +1,8 @@
 pragma solidity ^0.8.0;
 
+/**  @author : Supernovahs.eth */
+/** @dev : This contract is made to calculate funding allocation to 2 projects competing for funds.  */
+
 contract YourContract {
     struct Projects {
         uint256 id;
@@ -34,6 +37,8 @@ contract YourContract {
 
     mapping(address => mapping(uint256 => uint256)) public AddressToIdToAmount;
 
+    //**************** Square root function from Uniswap repo */
+
     function Sqrt(uint256 y) public pure returns (uint256 z) {
         if (y > 3) {
             z = y;
@@ -47,24 +52,7 @@ contract YourContract {
         }
     }
 
-    uint256 public a;
-    uint256 public b;
-
-    // *********** Add projects *********//
-
-    // function AddProject(address _ProjectAddress) public {
-    //     Projects memory project;
-    //     project.id = projects.length;
-    //     project.Address = _ProjectAddress;
-    //     projects.push(project);
-    // }
-
-    // function contribute(uint256 _id) public payable {
-    //     AddressToIdToAmount[msg.sender][_id] = msg.value;
-    //     contributions.push(Contributions(msg.value));
-
-    //     NoOfContributors++;
-    // }
+    //*********** Calculates project 1 ratio */
 
     function calculatorP1(uint256[] memory values) public {
         for (uint256 i; i < values.length; i++) {
@@ -76,6 +64,8 @@ contract YourContract {
         squareP1 = totalsP1 * totalsP1;
     }
 
+    //****************** Calculates Project 2 Ratio */
+
     function calculatorP2(uint256[] memory values) public {
         for (uint256 i; i < values.length; i++) {
             uint256 root = Sqrt(values[i]);
@@ -86,10 +76,14 @@ contract YourContract {
         squareP2 = totalsP2 * totalsP2;
     }
 
+    //*************** Contribute fund fo the matching pool */
+
     function MatchingPoolFund() public payable {
         MatchingFundContributor[msg.sender] += msg.value;
         TotalMatchingFund += msg.value;
     }
+
+    //************** Calculates ALlocation of the 2 projects */
 
     function CalculateAllocation() public returns (uint256, uint256) {
         P1Allocation = (squareP1 * TotalMatchingFund) / (squareP1 + squareP2);

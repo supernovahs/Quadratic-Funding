@@ -37,8 +37,11 @@ export default function ExampleUI({
   // useEffect(() => {
   //   const check = async => {};
   // }, []);
-  let p1;
-  let p2;
+  const [p1, setp1] = useState(null);
+  const [p2, setp2] = useState(null);
+  let pp1;
+  let pp2;
+
   return (
     <div>
       <div style={{ border: "1px solid #cccccc", padding: 16, width: 400, margin: "auto", marginTop: 64 }}>
@@ -47,10 +50,10 @@ export default function ExampleUI({
         <Button
           onClick={async () => {
             await writeContracts["YourContract"].CalculateAllocation();
-            p1 = await readContracts["YourContract"].P1Allocation();
-            console.log(p1 / 10 ** 18);
-            p2 = await readContracts["YourContract"].P2Allocation();
-            console.log(p2 / 10 ** 18);
+            pp1 = await readContracts["YourContract"].P1Allocation();
+            setp1(pp1 / 10 ** 18);
+            pp2 = await readContracts["YourContract"].P2Allocation();
+            setp2(pp2 / 10 ** 18);
           }}
         >
           Get Results!
@@ -58,19 +61,12 @@ export default function ExampleUI({
 
         <div style={{ border: "1px solid #cccccc", padding: 15, margin: "auto", marginTop: 60 }}>
           <h2>Project 1</h2>
-          <Button
-            onClick={async () => {
-              // p1 = await readContracts["YourContract"].P1Allocation();
-              // console.log(p1 / 10 ** 18);
 
-              // p2 = await readContracts["YourContract"].P2Allocation();
-              // console.log(p2 / 10 ** 18);
-              console.log(p1);
-            }}
-          >
-            Click
-          </Button>
-          <h3></h3>
+          {p1 && (
+            <div>
+              <h3>{p1}</h3>
+            </div>
+          )}
         </div>
         <div style={{ border: "1px solid #cccccc", padding: 15, margin: "auto", marginTop: 60 }}>
           <h2>Project 2</h2>
